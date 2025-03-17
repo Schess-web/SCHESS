@@ -1,4 +1,4 @@
-console.log("JavaScript is running!");
+console.log("Schess.js is loaded!");
 
         const chess = new Chess();
 
