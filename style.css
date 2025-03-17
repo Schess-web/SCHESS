@@ -9,7 +9,42 @@ body {
     min-height: 100vh; /* changed height to min-height */
     margin: 0; /* added margin reset */
 }
-
+.chess-board {
+    width: 60vw;
+    height: 60vw;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 0 auto;
+    border-spacing: 0; 
+    border-collapse: collapse; 
+}
+.square {
+    width: 12.5%;
+    height: 12.5%;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.chess-board th { 
+    padding: .5em; 
+}
+.chess-board td { 
+    border: 1px solid; 
+    width: 5em; 
+    height: 5em; 
+}
+.chess-board .light { 
+    background: #ffc75f; 
+}
+.chess-board .dark { 
+    background: #752f00; 
+}
 .container3 {
     position: relative;
     width: 100%;
