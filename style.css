@@ -30,18 +30,18 @@ body {
     align-items: center;
     position: relative;
 }
-.chess-board th { 
+.Chessboard th { 
     padding: .5em; 
 }
-.chess-board td { 
+.Chessboard td { 
     border: 1px solid; 
     width: 5em; 
     height: 5em; 
 }
-.chess-board .light { 
+.Chessboard .light { 
     background: #ffc75f; 
 }
-.chess-board .dark { 
+.Chessboard .dark { 
     background: #752f00; 
 }
 .id {
@@ -87,7 +87,6 @@ body {
 }
 .container3 {
     position: relative;
-    width: 100%;
     height: 200vh;
     justify-content: center;
     align-items: center;
