@@ -6,30 +6,31 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 200vh;
-    margin: 0;
+    min-height: 100vh; /* changed height to min-height */
+    margin: 0; /* added margin reset */
 }
 
 .container3 {
     position: relative;
     width: 100%;
-    height: 200vh;
+    min-height: 100vh; /* changed height to min-height */
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center; /* Added to center vertically */
     --s: 55px;
     --c1: #898787;
     --c2: #676767;
     --c3: #424040;
     --_g: 0 120deg,#0000 0;
     background:
-      conic-gradient(at calc(250%/3) calc(100%/3),var(--c3) var(--_g)),
-      conic-gradient(from -120deg at calc(50%/3) calc(100%/3),var(--c2) var(--_g)),
-      conic-gradient(from 120deg at calc(100%/3) calc(250%/3),var(--c1) var(--_g)),
-      conic-gradient(from 120deg at calc(200%/3) calc(250%/3),var(--c1) var(--_g)),
-      conic-gradient(from -180deg at calc(100%/3) 50%,var(--c2) 60deg,var(--c1) var(--_g)),
-      conic-gradient(from 60deg at calc(200%/3) 50%,var(--c1) 60deg,var(--c3) var(--_g)),
-      conic-gradient(from -60deg at 50% calc(100%/3),var(--c1) 120deg,var(--c2) 0 240deg,var(--c3) 0);
+            conic-gradient(at calc(250%/3) calc(100%/3),var(--c3) var(--_g)),
+            conic-gradient(from -120deg at calc(50%/3) calc(100%/3),var(--c2) var(--_g)),
+            conic-gradient(from 120deg at calc(100%/3) calc(250%/3),var(--c1) var(--_g)),
+            conic-gradient(from 120deg at calc(200%/3) calc(250%/3),var(--c1) var(--_g)),
+            conic-gradient(from -180deg at calc(100%/3) 50%,var(--c2) 60deg,var(--c1) var(--_g)),
+            conic-gradient(from 60deg at calc(200%/3) 50%,var(--c1) 60deg,var(--c3) var(--_g)),
+            conic-gradient(from -60deg at 50% calc(100%/3),var(--c1) 120deg,var(--c2) 0 240deg,var(--c3) 0);
     background-size: calc(var(--s)*1.732) var(--s);
 }
 
@@ -48,76 +49,27 @@ body {
 
 #board {
     width: 60vw;
-    height: 60vw;
-    max-width: 600px;
+    max-width: 600px; /* Added max-width */
     max-height: 600px;
     margin: 20px auto;
 }
 
-.chess-board {
-    border-spacing: 0;
-    border-collapse: collapse;
+#status {
+    margin-top: 10px;
+    text-align: center;
 }
-
-.chess-board th {
-    padding: .5em;
-}
-
-.chess-board td {
-    border: 1px solid;
-    width: 5em;
-    height: 5em;
-}
-
-.chess-board .light {
-    background: #ffc75f;
-}
-
-.chess-board .dark {
-    background: #752f00;
-}
-
-.square {
-    width: 12.5%;
-    height: 12.5%;
-    float: left;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
-
-.id {
-    position: absolute;
-    bottom: 4%;
-    left: 4%;
-    font-size: 12px;
-    font-weight: bold;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-.pieces {
-    background-size: 110%;
-    background-repeat: no-repeat;
-}
-
-/* Chess piece images */
-.pieces[data-piece="bdt"] { background-image: url('Chess_bdt60.png'); }
-.pieces[data-piece="blt"] { background-image: url('Chess_blt60.png'); }
-.pieces[data-piece="kdt"] { background-image: url('Chess_kdt60.png'); }
-.pieces[data-piece="klt"] { background-image: url('Chess_klt60.png'); }
-.pieces[data-piece="ndt"] { background-image: url('Chess_ndt60.png'); }
-.pieces[data-piece="nlt"] { background-image: url('Chess_nlt60.png'); }
-.pieces[data-piece="pdt"] { background-image: url('Chess_pdt60.png'); }
-.pieces[data-piece="plt"] { background-image: url('Chess_plt60.png'); }
-.pieces[data-piece="qdt"] { background-image: url('Chess_qdt60.png'); }
-.pieces[data-piece="qlt"] { background-image: url('Chess_qlt60.png'); }
-.pieces[data-piece="rdt"] { background-image: url('Chess_rdt60.png'); }
-.pieces[data-piece="rlt"] { background-image: url('Chess_rlt60.png'); }
 
 button {
     margin: 10px;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #3e8e41;
 }
