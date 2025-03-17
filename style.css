@@ -30,18 +30,18 @@ body {
     align-items: center;
     position: relative;
 }
-.Chessboard th { 
+.chess-board th { 
     padding: .5em; 
 }
-.Chessboard td { 
+.chess-board td { 
     border: 1px solid; 
     width: 5em; 
     height: 5em; 
 }
-.Chessboard .light { 
+.chess-board .light { 
     background: #ffc75f; 
 }
-.Chessboard .dark { 
+.chess-board .dark { 
     background: #752f00; 
 }
 .id {
