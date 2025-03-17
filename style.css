@@ -87,6 +87,7 @@ body {
 }
 .container3 {
     position: relative;
+    width: 100%;
     height: 200vh;
     justify-content: center;
     align-items: center;
