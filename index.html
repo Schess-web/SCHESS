@@ -1,18 +1,10 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Schess.org</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="styles.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
-    <style>
-        .chess-board { border-spacing: 0; border-collapse: collapse; }
-        .chess-board th { padding: .5em; }
-        .chess-board td { border: 1px solid; width: 5em; height: 5em; }
-        .chess-board .light { background: #ffc75f; }
-        .chess-board .dark { background: #752f00; }
-    </style>
+    <link href="Schess.css" rel="stylesheet">
 </head>
 <body>
     <div class="container3">
@@ -20,58 +12,113 @@
         <div class="container">
             <p style="text-align: center;">THIS IS YOUR OPPONENT</p>
         </div>
-        <div id="board"></div>
+        <table class="chess-board">
+            <tbody>
+                <tr>
+                    <th></th>
+                    <th>a</th>
+                    <th>b</th>
+                    <th>c</th>
+                    <th>d</th>
+                    <th>e</th>
+                    <th>f</th>
+                    <th>g</th>
+                    <th>h</th>
+                </tr>
+                <tr>
+                    <th>8</th>
+                    <td class="light" id="a8"><img src="Chess_rdt60.png" alt="Black Rook"></td>
+                    <td class="dark" id="b8"><img src="Chess_ndt60.png" alt="Black Knight"></td>
+                    <td class="light" id="c8"><img src="Chess_bdt60.png" alt="Black Bishop"></td>
+                    <td class="dark" id="d8"><img src="Chess_qdt60.png" alt="Black Queen"></td>
+                    <td class="light" id="e8"><img src="Chess_kdt60.png" alt="Black King"></td>
+                    <td class="dark" id="f8"><img src="Chess_bdt60.png" alt="Black Bishop"></td>
+                    <td class="light" id="g8"><img src="Chess_ndt60.png" alt="Black Knight"></td>
+                    <td class="dark" id="h8"><img src="Chess_rdt60.png" alt="Black Rook"></td>
+                </tr>
+                <tr>
+                    <th>7</th>
+                    <td class="dark" id="a7"><img src="Chess_pdt60.png" alt="Black Pawn"></td>
+                    <td class="light" id="b7"><img src="Chess_pdt60.png" alt="Black Pawn"></td>
+                    <td class="dark" id="c7"><img src="Chess_pdt60.png" alt="Black Pawn"></td>
+                    <td class="light" id="d7"><img src="Chess_pdt60.png" alt="Black Pawn"></td>
+                    <td class="dark" id="e7"><img src="Chess_pdt60.png" alt="Black Pawn"></td>
+                    <td class="light" id="f7"><img src="Chess_pdt60.png" alt="Black Pawn"></td>
+                    <td class="dark" id="g7"><img src="Chess_pdt60.png" alt="Black Pawn"></td>
+                    <td class="light" id="h7"><img src="Chess_pdt60.png" alt="Black Pawn"></td>
+                </tr>
+                <tr>
+                    <th>6</th>
+                    <td class="light" id="a6"></td>
+                    <td class="dark" id="b6"></td>
+                    <td class="light" id="c6"></td>
+                    <td class="dark" id="d6"></td>
+                    <td class="light" id="e6"></td>
+                    <td class="dark" id="f6"></td>
+                    <td class="light" id="g6"></td>
+                    <td class="dark" id="h6"></td>
+                </tr>
+                <tr>
+                    <th>5</th>
+                    <td class="dark" id="a5"></td>
+                    <td class="light" id="b5"></td>
+                    <td class="dark" id="c5"></td>
+                    <td class="light" id="d5"></td>
+                    <td class="dark" id="e5"></td>
+                    <td class="light" id="f5"></td>
+                    <td class="dark" id="g5"></td>
+                    <td class="light" id="h5"></td>
+                </tr>
+                <tr>
+                    <th>4</th>
+                    <td class="light" id="a4"></td>
+                    <td class="dark" id="b4"></td>
+                    <td class="light" id="c4"></td>
+                    <td class="dark" id="d4"></td>
+                    <td class="light" id="e4"></td>
+                    <td class="dark" id="f4"></td>
+                    <td class="light" id="g4"></td>
+                    <td class="dark" id="h4"></td>
+                </tr>
+                <tr>
+                    <th>3</th>
+                    <td class="dark" id="a3"></td>
+                    <td class="light" id="b3"></td>
+                    <td class="dark" id="c3"></td>
+                    <td class="light" id="d3"></td>
+                    <td class="dark" id="e3"></td>
+                    <td class="light" id="f3"></td>
+                    <td class="dark" id="g3"></td>
+                    <td class="light" id="h3"></td>
+                </tr>
+                <tr>
+                    <th>2</th>
+                    <td class="light" id="a2"><img src="Chess_plt60.png" alt="White Pawn"></td>
+                    <td class="dark" id="b2"><img src="Chess_plt60.png" alt="White Pawn"></td>
+                    <td class="light" id="c2"><img src="Chess_plt60.png" alt="White Pawn"></td>
+                    <td class="dark" id="d2"><img src="Chess_plt60.png" alt="White Pawn"></td>
+                    <td class="light" id="e2"><img src="Chess_plt60.png" alt="White Pawn"></td>
+                    <td class="dark" id="f2"><img src="Chess_plt60.png" alt="White Pawn"></td>
+                    <td class="light" id="g2"><img src="Chess_plt60.png" alt="White Pawn"></td>
+                    <td class="dark" id="h2"><img src="Chess_plt60.png" alt="White Pawn"></td>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <td class="dark" id="a1"><img src="Chess_rlt60.png" alt="White Rook"></td>
+                    <td class="light" id="b1"><img src="Chess_nlt60.png" alt="White Knight"></td>
+                    <td class="dark" id="c1"><img src="Chess_blt60.png" alt="White Bishop"></td>
+                    <td class="light" id="d1"><img src="Chess_qlt60.png" alt="White Queen"></td>
+                    <td class="dark" id="e1"><img src="Chess_klt60.png" alt="White King"></td>
+                    <td class="light" id="f1"><img src="Chess_blt60.png" alt="White Bishop"></td>
+                    <td class="dark" id="g1"><img src="Chess_nlt60.png" alt="White Knight"></td>
+                    <td class="light" id="h1"><img src="Chess_rlt60.png" alt="White Rook"></td>
+                </tr>
+            </tbody>
+        </table>
         <div class="container2">
             <p style="text-align: center;">THIS IS YOU</p>
         </div>
-        <button id="startBtn">Start Position</button>
-        <button id="clearBtn">Clear Board</button>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
-    <script>
-        const chess = new Chess();
-        const board = Chessboard('board', {
-            draggable: true,
-            position: 'start',
-            onDragStart: onDragStart,
-            onDrop: onDrop,
-            onSnapEnd: onSnapEnd
-        });
-
-        function onDragStart(source, piece, position, orientation) {
-            if (chess.game_over() || 
-                (chess.turn() === 'w' && piece.search(/^b/) !== -1) ||
-                (chess.turn() === 'b' && piece.search(/^w/) !== -1)) {
-                return false;
-            }
-        }
-
-        function onDrop(source, target) {
-            const move = chess.move({
-                from: source,
-                to: target,
-                promotion: 'q'
-            });
-
-            if (move === null) return 'snapback';
-        }
-
-        function onSnapEnd() {
-            board.position(chess.fen());
-        }
-
-        $('#startBtn').on('click', function() {
-            chess.reset();
-            board.start();
-        });
-
-        $('#clearBtn').on('click', function() {
-            chess.clear();
-            board.clear();
-        });
-    </script>
+    <script src="Schess.js"></script>
 </body>
 </html>
