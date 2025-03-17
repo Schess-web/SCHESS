@@ -1,81 +1,99 @@
 console.log("JavaScript is running!");
 
-// Initialize chess.js
-const chess = new Chess();
+let board = null;
+const game = new Chess();
+let $status = $('#status');
 
-// Initialize chessboard.js
-const board = Chessboard('board', {
+
+function onDragStart (source, piece, position, orientation) {
+    // do not pick up pieces if the game is over
+    if (game.game_over()) return false
+
+    // only pick up pieces for the side to move
+    if ((game.turn() === 'w' && piece.startsWith('b')) ||
+        (game.turn() === 'b' && piece.startsWith('w'))) {
+        return false
+    }
+}
+
+function onDrop (source, target) {
+    // see if the move is legal
+    let move = null;
+    try {
+        move = game.move({
+            from: source,
+            to: target,
+            promotion: 'q' // always promote to a queen for example simplicity
+        });
+    } catch (error) {
+        console.error("Invalid move:", error);
+        return 'snapback';
+    }
+
+
+    // illegal move
+    if (move === null) return 'snapback'
+
+    updateStatus()
+}
+
+// update the board position after the piece snap
+// for castling, en passant, pawn promotion
+function onSnapEnd () {
+    board.position(game.fen())
+}
+
+function updateStatus () {
+    let status = ''
+
+    let moveColor = 'White'
+    if (game.turn() === 'b') {
+        moveColor = 'Black'
+    }
+
+    // checkmate?
+    if (game.in_checkmate()) {
+        status = 'Game over, ' + moveColor + ' is in checkmate.'
+    }
+
+    // draw?
+    else if (game.in_draw()) {
+        status = 'Game over, drawn position'
+    }
+
+    // game still on
+    else {
+        status = moveColor + ' to move'
+
+        // check?
+        if (game.in_check()) {
+            status += ', ' + moveColor + ' is in check'
+        }
+    }
+
+    $status.html(status)
+}
+
+const config = {
     draggable: true,
     position: 'start',
     onDragStart: onDragStart,
     onDrop: onDrop,
     onSnapEnd: onSnapEnd
-});
+};
 
-// Handle drag start event
-function onDragStart(source, piece, position, orientation) {
-    // Prevent dragging if the game is over or if it's not the player's turn
-    if (chess.game_over() || 
-        (chess.turn() === 'w' && piece.search(/^b/) !== -1) ||
-        (chess.turn() === 'b' && piece.search(/^w/) !== -1)) {
-        return false;
-    }
-}
+board = Chessboard('board', config);
 
-// Handle drop event
-function onDrop(source, target) {
-    // Attempt to make a move
-    const move = chess.move({
-        from: source,
-        to: target,
-        promotion: 'q' // Always promote to a queen for simplicity
-    });
-
-    // If the move is illegal, return the piece to its original square
-    if (move === null) return 'snapback';
-
-    updateStatus();
-}
-
-// Update the board position after a valid move
-function onSnapEnd() {
-    board.position(chess.fen());
-}
-
-// Update game status (e.g., whose turn it is, checkmate, etc.)
-function updateStatus() {
-    let status = '';
-
-    let moveColor = 'White';
-    if (chess.turn() === 'b') {
-        moveColor = 'Black';
-    }
-
-    if (chess.in_checkmate()) {
-        status = 'Game over, ' + moveColor + ' is in checkmate.';
-    } else if (chess.in_draw()) {
-        status = 'Game over, drawn position';
-    } else {
-        status = moveColor + ' to move';
-        if (chess.in_check()) {
-            status += ', ' + moveColor + ' is in check';
-        }
-    }
-
-    console.log(status); // Log the status to the console for debugging
-}
-
-// Event listener for the "Start Position" button
-document.getElementById('startBtn').addEventListener('click', () => {
-    chess.reset();
-    board.start();
-});
-
-// Event listener for the "Clear Board" button
-document.getElementById('clearBtn').addEventListener('click', () => {
-    chess.clear();
-    board.clear();
-});
-
-// Initialize game status
 updateStatus();
+
+$( "#startBtn" ).click(function() {
+    game.reset();
+    board.start();
+    updateStatus();
+});
+
+$( "#clearBtn" ).click(function() {
+    game.reset();
+    board.clear();
+    updateStatus();
+});
