@@ -6,32 +6,110 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    margin: 0;
+    min-height: 100vh; /* changed height to min-height */
+    margin: 0; /* added margin reset */
 }
+.chessBoard {
+    width: 60vw;
+    height: 60vw;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+
+
+}
+.square {
+    width: 12.5%;
+    height: 12.5%;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+
+.white {
+    background-color: #ffc75f;
+}
+.black {
+    background-color: #752f00;
+}
+.coordinate {
+    height: auto;
+    display: flex;
+    bottom: 4%;
+    left: 4%;
+    position: absolute;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.rank{
+    top: 4%;
+    right: 4%;
+    left: auto;
+}
+.whiteText {
+    color: #ffc75f;
+}
+.blackText {
+    color: #752f00;
+}
+.piece {
+    width:100%;
+    z-index: 1;
+    cursor: pointer;
+}
+.piece img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+}
+@media (min-width:600px) {
+    .chessBoard {
+        width: 600px;
+        height: 600px;
+
+
+    }
+}
+@media (max-width:600px) {
+    .coordinate {
+        font-size: 8px;
+
+
+    }
+}
+
+
+
+
 .container3 {
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    min-height: 100vh; /* changed height to min-height */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: center; /* Added to center vertically */
     --s: 55px;
     --c1: #898787;
     --c2: #676767;
     --c3: #424040;
     --_g: 0 120deg,#0000 0;
     background:
-      conic-gradient( at calc(250%/3) calc(100%/3),var(--c3) var(--_g)),
-      conic-gradient(from -120deg at calc( 50%/3) calc(100%/3),var(--c2) var(--_g)),
-      conic-gradient(from 120deg at calc(100%/3) calc(250%/3),var(--c1) var(--_g)),
-      conic-gradient(from 120deg at calc(200%/3) calc(250%/3),var(--c1) var(--_g)),
-      conic-gradient(from -180deg at calc(100%/3) 50%,var(--c2) 60deg,var(--c1) var(--_g)),
-      conic-gradient(from 60deg at calc(200%/3) 50%,var(--c1) 60deg,var(--c3) var(--_g)),
-      conic-gradient(from -60deg at 50% calc(100%/3),var(--c1) 120deg,var(--c2) 0 240deg,var(--c3) 0);
+            conic-gradient(at calc(250%/3) calc(100%/3),var(--c3) var(--_g)),
+            conic-gradient(from -120deg at calc(50%/3) calc(100%/3),var(--c2) var(--_g)),
+            conic-gradient(from 120deg at calc(100%/3) calc(250%/3),var(--c1) var(--_g)),
+            conic-gradient(from 120deg at calc(200%/3) calc(250%/3),var(--c1) var(--_g)),
+            conic-gradient(from -180deg at calc(100%/3) 50%,var(--c2) 60deg,var(--c1) var(--_g)),
+            conic-gradient(from 60deg at calc(200%/3) 50%,var(--c1) 60deg,var(--c3) var(--_g)),
+            conic-gradient(from -60deg at 50% calc(100%/3),var(--c1) 120deg,var(--c2) 0 240deg,var(--c3) 0);
     background-size: calc(var(--s)*1.732) var(--s);
 }
+
+
 .container, .container2 {
     width: 80%;
     max-width: 625px;
@@ -44,88 +122,28 @@ body {
     color: black;
     overflow: hidden;
 }
-.chess-board {
-    width: 60vw;
-    height: 60vw;
-    max-width: 600px;
-    max-height: 600px;
-    margin: 20px auto;
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(8, 1fr);
-}
-.square {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    font-size: 1.5em;
-    cursor: pointer;
-}
-.chess-board th {
-    padding: .5em;
-}
-.chess-board td {
-    border: 1px solid;
-    width: 5em;
-    height: 5em;
-}
-.chess-board .light {
-    background-color: #ffc75f;
-}
-.chess-board .dark {
-    background-color: #752f00;
-}
-.piece {
-    width: 80%;
-    height: 80%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    user-select: none; /* Prevent text selection on drag */
-    /* Use data-piece attribute for image */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-/* Piece Styles (Example - Adjust Filenames Accordingly) */
-.piece[data-piece='wP'] { background-image: url('Chess_plt60.png'); }
-.piece[data-piece='wR'] { background-image: url('Chess_rlt60.png'); }
-.piece[data-piece='wN'] { background-image: url('Chess_nlt60.png'); }
-.piece[data-piece='wB'] { background-image: url('Chess_blt60.png'); }
-.piece[data-piece='wQ'] { background-image: url('Chess_qlt60.png'); }
-.piece[data-piece='wK'] { background-image: url('Chess_klt60.png'); }
-.piece[data-piece='bP'] { background-image: url('Chess_pdt60.png'); }
-.piece[data-piece='bR'] { background-image: url('Chess_rdt60.png'); }
-.piece[data-piece='bN'] { background-image: url('Chess_ndt60.png'); }
-.piece[data-piece='bB'] { background-image: url('Chess_bdt60.png'); }
-.piece[data-piece='bQ'] { background-image: url('Chess_qdt60.png'); }
-.piece[data-piece='bK'] { background-image: url('Chess_kdt60.png'); }
-#board {
-    width: 60vw;
-    max-width: 600px;
-    max-height: 600px;
-    margin: 20px auto;
-}
-#status {
-    margin-top: 10px;
-    text-align: center;
-}
+
+
+
+
 button {
     margin: 10px;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #4CAF50;
+    background-color: #00000093;
     color: white;
-    border: none;
+    border: 20px;
     border-radius: 5px;
-    transition: .4s ease;
+    transition: .3s ease-in-out;
 }
+
+
 button:hover {
     background-color: #ff000088;
-    color: #000;
+    color: #000
 }
+
+
+
+
