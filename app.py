@@ -1,3 +1,21 @@
+from flask import Flask, render_template, request
+
+app = Flask(__name__)
+
+# Route to serve the HTML file
+@app.route('/')
+def index():
+    return render_template('index.html')  # This assumes index.html is in a "templates" folder
+
+# Route to handle form submission
+@app.route('/submit', methods=['POST'])
+def submit():
+    name = request.form['name']
+    return f'<h1>Hello, {name}! Your form has been submitted successfully.</h1>'
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
 import chess
 import chess.engine
 import random
