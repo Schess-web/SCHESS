@@ -6,7 +6,7 @@ document.getElementById('myForm').addEventListener('submit', function(event) {
 
     var message = document.createElement('p');
     message.textContent = 'Form submitted successfully!';
-    document.body.appendChild(message);
+    document.body.appendChild(message); 
 });
 </script>
 
