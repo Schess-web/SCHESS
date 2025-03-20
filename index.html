@@ -7,11 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form id=myForm action="/submit" method="POST">
-        <label for="name">Enter your name:</label>
-        <input type="text" id="name" name="name" required>
-        <button type="submit">Submit</button>
-    </form> 
+    
     <div class="container3">
         <h1 style="text-align: center;">WELCOME TO SCHESS.org</h1>
         <div class="container">
@@ -238,7 +234,11 @@
                         <img src="Chess_rlt60.png" alt="Rook">
                     </div>
 
-
+                    <form id=myForm action="/submit" method="POST">
+        <label for="name">Enter your name:</label>
+        <input type="text" id="name" name="name" required>
+        <button type="submit">Submit</button>
+    </form> 
                 </div>
             </div>
     <button id="startBtn">Start Position</button>
