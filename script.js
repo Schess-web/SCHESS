@@ -1,17 +1,3 @@
-document.getElementById('myForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the form from submitting normally
-    
-    // Hide the form
-    this.style.display = 'none';
-
-    var message = document.createElement('p');
-    message.textContent = 'Form submitted successfully!';
-    document.body.appendChild(message); 
-});
-</script>
-
-
-
 let legalSquares=[];
 let isWhiteTurn=true;
 const boardSquares=document.getElementsByClassName("square")
